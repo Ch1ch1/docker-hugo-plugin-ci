@@ -1,0 +1,30 @@
+kind: pipeline
+type: docker
+name: Building..
+node:
+  drone: ch1
+  drone: nimi
+
+steps:
+- name: build & push
+  image: plugins/docker
+  settings:
+    repo: ch1ch1/drone-hugo
+    tags: [ "latest" ]
+    username: ch1ch1
+    password:
+      from_secret: dockerhub-password
+- name: notification
+  image: plugins/webhook
+  settings:
+    urls:
+     from_secret: webhookgotify
+    content_type: application/json
+    template: |
+      {
+       "message": "{{ repo.owner }} as updated {{ repo.name }} with {{ build.status }}.",
+       "priority": 4,
+       "title": "{{ repo.name }} build"
+      }
+  when:
+    status: [ success, failure ]
