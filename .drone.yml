@@ -4,7 +4,6 @@ type: docker
 name: Building..
 node:
   drone: ch1
-  drone: nimi
 
 steps:
 - name: build & push
