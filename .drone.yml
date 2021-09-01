@@ -13,7 +13,7 @@ steps:
     tags: [ "latest" ]
     username: ch1ch1
     password:
-      from_secret: dockerhub-password
+      from_secret: dockerhub_token
 - name: notification
   image: plugins/webhook
   settings:
@@ -31,6 +31,6 @@ steps:
 
 ---
 kind: signature
-hmac: bc7c2c5f915712bd309e2e65fa1d98db0deac634d55920c747224f1ec2a1d8e1
+hmac: b8b961cb135f329050233305fc04b30908e59f489df09f1e5c1ab3cd34884120
 
 ...
