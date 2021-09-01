@@ -4,7 +4,7 @@ type: docker
 name: Building..
 node:
   drone: ch1
-
+ 
 steps:
 - name: build & push
   image: plugins/docker
@@ -31,6 +31,6 @@ steps:
 
 ---
 kind: signature
-hmac: b8b961cb135f329050233305fc04b30908e59f489df09f1e5c1ab3cd34884120
+hmac: dc4d9f1237867d8feca5f5d08dd34a01bd3ed9a243cc89cddbbb6cc51178cc57
 
 ...
