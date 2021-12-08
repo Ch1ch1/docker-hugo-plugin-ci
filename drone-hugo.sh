@@ -1,7 +1,7 @@
 #!/bin/sh
-HUGO_VERSION=${PLUGIN_HUGO_VERSION:-"0.89.3"}
+HUGO_VERSION=${PLUGIN_HUGO_VERSION:-"0.89.4"}
 HUGO_ARCH="64bit"
-HUGO_ARGS=${PLUGIN_HUGO_ARGS:-""}
+HUGO_ARGS=${PLUGIN_HUGO_ARGS:-"--minify"}
 
 HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-${HUGO_ARCH}.tar.gz"
 
