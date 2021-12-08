@@ -6,5 +6,3 @@ HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hu
 
 echo "Fetching Hugo ${HUGO_VERSION} from https://github.com/gohugoio"
 wget -q -O- ${HUGO_URL} | tar xz -C /usr/local/bin
-
-hugo --minify
