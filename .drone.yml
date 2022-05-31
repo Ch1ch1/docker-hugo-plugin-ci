@@ -4,7 +4,7 @@ type: docker
 name: Building..
 node:
   drone: ch1
- 
+
 steps:
 - name: build & push
   image: plugins/docker
@@ -28,9 +28,8 @@ steps:
       }
   when:
     status: [ success, failure ]
-
 ---
 kind: signature
-hmac: dc4d9f1237867d8feca5f5d08dd34a01bd3ed9a243cc89cddbbb6cc51178cc57
+hmac: 8ffadd35bc4548106f84799557f22cda1a69364c48973a992a748251f33a14c9
 
 ...
