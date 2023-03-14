@@ -6,7 +6,8 @@ RUN apk add --no-cache \
     git \
     wget \
     libc6-compat \
-    libstdc++
+    libstdc++ \
+    musl-dev
 
 ADD drone-hugo.sh /bin/
 RUN chmod +x /bin/drone-hugo.sh
