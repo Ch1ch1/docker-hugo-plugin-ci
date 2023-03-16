@@ -1,39 +1,18 @@
-# GitHub:       https://github.com/gohugoio
-# Twitter:      https://twitter.com/gohugoio
-# Website:      https://gohugo.io/
+FROM alpine:3.17
 
-FROM golang:1.19-alpine AS build
+ENV HUGO_VERSION 0.111.3
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
+ENV DL_URL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}
 
-# Optionally set HUGO_BUILD_TAGS to "extended" or "nodeploy" when building like so:
-#   docker build --build-arg HUGO_BUILD_TAGS=extended .
-ARG HUGO_BUILD_TAGS
 
-ARG CGO=1
-ENV CGO_ENABLED=${CGO}
-ENV GOOS=linux
-ENV GO111MODULE=on
-
-WORKDIR /go/src/github.com/gohugoio/hugo
-
-COPY . /go/src/github.com/gohugoio/hugo/
-
-# gcc/g++ are required to build SASS libraries for extended version
 RUN apk update && \
-    apk add --no-cache gcc g++ musl-dev git && \
-    go install github.com/magefile/mage@latest
+    apk add --no-cache wget gcompat ca-certificates libc6-compat libstdc++ git
 
-RUN mage hugo && mage install
-
-# ---
-
-FROM alpine:3.16
-
-COPY --from=build /go/bin/hugo /usr/bin/hugo
-
-# libc6-compat & libstdc++ are required for extended SASS libraries
-# ca-certificates are required to fetch outside resources (like Twitter oEmbeds)
-RUN apk update && \
-    apk add --no-cache ca-certificates libc6-compat libstdc++ git
+RUN wget ${DL_URL} && \
+  tar xzf ${HUGO_BINARY} && \
+  rm -r ${HUGO_BINARY} && \
+  mv hugo /usr/bin && \
+  rm /var/cache/apk/*
 
 ADD drone-hugo.sh /bin/
 RUN chmod +x /bin/drone-hugo.sh
