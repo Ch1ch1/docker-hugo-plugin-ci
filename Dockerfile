@@ -1,13 +1,12 @@
-FROM debian
+FROM alpine
 
 ENV HUGO_VERSION 0.123.0
-ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
 ENV DL_URL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}
 
-RUN apt-get update && apt-get install -y wget libc6-dev ca-certificates git \
-    && apt-get clean \
-    && apt-get autoremove --yes \
-    && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
+RUN apk update \
+    && apk add wget libc6-dev ca-certificates git wget tar \
+    && rm -rf /var/cache/apk/* \
     && wget ${DL_URL} \
     && tar xzf ${HUGO_BINARY} \
     && rm -r ${HUGO_BINARY} \
