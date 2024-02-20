@@ -15,7 +15,7 @@
     "description": "Automerge hugo ci updates",
     "extends": ["schedule:weekly"],
     "matchManagers": ["woodpecker"],
-    "matchPackageNames": ["quay.io/thegeeklab/hugo"],
+    "matchPackageNames": ["github.com/Ch1ch1/docker-hugo-plugin-ci"],
     "matchUpdateTypes": ["patch"],
     "automerge": true
   }
