@@ -1,9 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Automerge hugo ci updates",
-  "extends": ["schedule:weekly"],
-  "matchManagers": ["woodpecker"],
-  "matchPackageNames": ["github.com/Ch1ch1/docker-hugo-plugin-ci"],
-  "matchUpdateTypes": ["patch"],
-  "automerge": true
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
+    "docker:enableMajor",
+    ":masterIssue",
+    "group:linters",
+    ":maintainLockFilesWeekly"
+  ],    
+  "packageRules": [
+  {
+    "description": "Automerge hugo ci updates",
+    "extends": ["schedule:weekly"],
+    "matchManagers": ["woodpecker"],
+    "matchPackageNames": ["quay.io/thegeeklab/hugo"],
+    "matchUpdateTypes": ["patch"],
+    "automerge": true
+  }
+]
 }
