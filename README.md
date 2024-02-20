@@ -1,4 +1,5 @@
-# drone-hugo
-[![Build Status](https://drone.ch1.ninja/api/badges/Ch1ch1/drone-hugo/status.svg)](https://drone.ch1.ninja/Ch1ch1/drone-hugo)
+# hugo-plugin-ci  
+
+[![status-badge](https://ci.ch1.ninja/api/badges/6/status.svg)](https://ci.ch1.ninja/repos/6)  
 
 A Drone plugin to build my Hugo static websites.
