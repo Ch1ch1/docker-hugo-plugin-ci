@@ -13,7 +13,7 @@ variables:
         username: ch1ch1
         password:
           from_secret: docker_token
-  - &publish_repos 'ch1ch1/drone-hugo'
+  - &publish_repos 'ch1ch1/hugo-plugin-ci'
 
 steps:
   build-drone-hugo-dev:
