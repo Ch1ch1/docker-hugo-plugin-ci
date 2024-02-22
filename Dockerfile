@@ -6,14 +6,11 @@ ENV DL_URL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/$
 
 RUN apk update \
     && apk add wget libc-dev ca-certificates git wget tar \
-    && rm -rf /var/cache/apk/* \
-    && wget ${DL_URL} \
-    && tar xf ${HUGO_BINARY} -C /usr/bin \
-    && rm -r ${HUGO_BINARY}
+    && rm -rf /var/cache/apk/*
+RUN doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
 
 ADD drone-hugo.sh /bin/
-RUN chmod +x /bin/drone-hugo.sh \
-    && chmod +x /usr/bin/hugo
+RUN chmod +x /bin/drone-hugo.sh 
 
 ENTRYPOINT /bin/drone-hugo.sh
 
