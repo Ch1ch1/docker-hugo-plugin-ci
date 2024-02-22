@@ -9,7 +9,7 @@ RUN apk update \
     && rm -rf /var/cache/apk/* 
 
 ADD ${DL_URL} /tmp
-RUN tar xzvf /tmp/${HUGO_BINARY} hugo -C /usr/local/bin \
+RUN tar xzvf /tmp/${HUGO_BINARY} -C /usr/local/bin \
 	&& rm -fr /tmp/${HUGO_BINARY}
 
 ADD drone-hugo.sh /bin/
