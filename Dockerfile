@@ -12,9 +12,6 @@ ADD ${DL_URL} /tmp
 RUN tar xzvf /tmp/${HUGO_BINARY} -C /usr/local/bin \
 	&& rm -fr /tmp/${HUGO_BINARY}
 
-ADD drone-hugo.sh /bin/
-RUN chmod +x /bin/drone-hugo.sh \
-    && chmod +x /usr/local/bin/hugo
-
-ENTRYPOINT /bin/drone-hugo.sh
+ENTRYPOINT [ "" ]
+CMD [ "hugo" ]
 
