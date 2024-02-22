@@ -1,4 +1,4 @@
 #!/bin/sh
 HUGO_ARGS=${PLUGIN_HUGO_ARGS:-"--minify"}
 
-hugo ${HUGO_ARGS}
+/usr/bin/hugo ${HUGO_ARGS}
