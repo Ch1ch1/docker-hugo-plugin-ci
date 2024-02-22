@@ -11,7 +11,7 @@ RUN apk update \
 
 RUN tar xzf ${HUGO_BINARY} \
     && rm -r ${HUGO_BINARY} \
-    && mv hugo /usr/bin/
+    && mv hugo /bin/
 
 ADD drone-hugo.sh /bin/
 RUN chmod +x /bin/drone-hugo.sh
