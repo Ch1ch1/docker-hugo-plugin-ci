@@ -11,8 +11,7 @@ RUN apt update \
 ADD ${DL_URL} /tmp
 RUN tar xzvf /tmp/${HUGO_BINARY}
 RUN mv hugo /usr/local/bin/hugo \
-    && chmod +x /usr/local/bin/hugo \
-
+    && chmod +x /usr/local/bin/hugo
 
 ENTRYPOINT [ "" ]
 CMD [ "hugo" ]
