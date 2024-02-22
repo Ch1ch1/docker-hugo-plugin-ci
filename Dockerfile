@@ -9,8 +9,8 @@ RUN apk update \
     && rm -rf /var/cache/apk/* 
 
 ADD ${DL_URL} /tmp
-RUN tar xzvf /tmp/${HUGO_BINARY} \
-    && mv hugo /usr/local/bin/hugo \
+RUN tar xzvf /tmp/${HUGO_BINARY}
+RUN mv hugo /usr/local/bin/hugo \
     && chmod +x /usr/local/bin/hugo \
 	&& rm -fr /tmp/${HUGO_BINARY} 
 
