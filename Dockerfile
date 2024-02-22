@@ -10,7 +10,8 @@ RUN apk update \
 
 ADD ${DL_URL} /tmp
 RUN tar xzvf /tmp/${HUGO_BINARY} -C /usr/local/bin \
-	&& rm -fr /tmp/${HUGO_BINARY}
+	&& rm -fr /tmp/${HUGO_BINARY} \
+    && chmod +x /usr/local/bin/hugo
 
 ENTRYPOINT [ "" ]
 CMD [ "hugo" ]
