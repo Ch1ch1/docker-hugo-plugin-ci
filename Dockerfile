@@ -10,7 +10,7 @@ RUN apk update \
 
 ADD ${DL_URL} /tmp
 RUN tar xzvf /tmp/${HUGO_BINARY} \
-    && cp hugo /usr/local/bin \
+    && mv hugo /usr/local/bin/hugo \
     && chmod +x /usr/local/bin/hugo \
 	&& rm -fr /tmp/${HUGO_BINARY} 
 
