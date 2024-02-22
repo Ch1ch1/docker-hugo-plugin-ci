@@ -9,9 +9,10 @@ RUN apk update \
     && rm -rf /var/cache/apk/* 
 
 ADD ${DL_URL} /tmp
-RUN tar xzvf /tmp/${HUGO_BINARY} -C /usr/local/bin \
-	&& rm -fr /tmp/${HUGO_BINARY} \
-    && chmod +x /usr/local/bin/hugo
+RUN tar xzvf /tmp/${HUGO_BINARY} \
+    && mv hugo /usr/local/bin \
+    && chmod +x /usr/local/bin/hugo \
+	&& rm -fr /tmp/${HUGO_BINARY} 
 
 ENTRYPOINT [ "" ]
 CMD [ "hugo" ]
