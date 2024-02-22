@@ -8,7 +8,7 @@ RUN apk update \
     && apk add wget libc-dev ca-certificates git wget tar \
     && rm -rf /var/cache/apk/* \
     && wget ${DL_URL} \
-    && tar xzf ${HUGO_BINARY} \
+    && tar xczf ${HUGO_BINARY} \
     && rm -r ${HUGO_BINARY} \
     && mv hugo /usr/bin 
 
