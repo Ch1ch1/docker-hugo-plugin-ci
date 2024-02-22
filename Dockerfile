@@ -15,5 +15,5 @@ RUN tar xzvf /tmp/${HUGO_BINARY} \
 	&& rm -fr /tmp/${HUGO_BINARY} 
 
 ENTRYPOINT [ "" ]
-CMD [ "hugo -h" ]
+CMD [ "/usr/local/bin/hugo" ]
 
