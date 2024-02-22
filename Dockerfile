@@ -8,9 +8,9 @@ RUN apk update \
     && apk add wget libc-dev ca-certificates git wget tar \
     && rm -rf /var/cache/apk/* \
     && wget ${DL_URL} \
-    && tar vxf ${HUGO_BINARY} -C /usr/bin \
-    && rm -r ${HUGO_BINARY}
-
+    && tar vxf ${HUGO_BINARY}
+    
+ADD hugo /usr/bin/
 ADD drone-hugo.sh /bin/
 RUN chmod +x /bin/drone-hugo.sh \
     && chmod +x /usr/bin/hugo
