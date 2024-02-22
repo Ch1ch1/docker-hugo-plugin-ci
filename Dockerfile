@@ -7,8 +7,9 @@ ENV DL_URL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/$
 RUN apk update \
     && apk add wget libc-dev ca-certificates git wget tar \
     && rm -rf /var/cache/apk/* \
-    && wget ${DL_URL} \
-    && tar xzf ${HUGO_BINARY} \
+    && wget ${DL_URL}
+
+RUN tar xzf ${HUGO_BINARY} \
     && rm -r ${HUGO_BINARY} \
     && mv hugo /usr/bin 
 
