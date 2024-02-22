@@ -1,7 +1,7 @@
 FROM alpine
 
 ENV HUGO_VERSION 0.123.0
-ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
 ENV DL_URL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}
 
 RUN apk update \
